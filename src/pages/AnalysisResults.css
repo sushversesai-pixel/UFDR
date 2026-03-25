@@ -1,0 +1,277 @@
+/* Keep existing logic and append the entities grid CSS */
+@import url('./AnalysisResults.css'); /* Ensuring it plays nicely if overwrite replaces everything, actually I should output full code */
+
+.analysis-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.case-header-card {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+}
+
+.case-info h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.case-meta {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.case-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.view-report-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.results-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.danger-icon {
+  color: var(--danger-color);
+}
+
+.patterns-section {
+  background-color: rgba(239, 68, 68, 0.03);
+  border: 1px solid rgba(239, 68, 68, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.patterns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1rem;
+}
+
+.pattern-card {
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.pattern-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pattern-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.pattern-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pattern-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: auto;
+}
+
+.clock-icon {
+  opacity: 0.7;
+}
+
+.entities-tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.entity-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  border: 1px solid var(--border-color);
+}
+
+.entity-tab:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.entity-tab.active {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--accent-color);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.entities-content-area {
+  min-height: 200px;
+  padding: 1.5rem;
+}
+
+.entities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.entity-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.entity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entity-icon.person { background-color: rgba(59, 130, 246, 0.1); color: var(--accent-color); }
+.entity-icon.phone { background-color: rgba(234, 179, 8, 0.1); color: var(--warning-color); }
+.entity-icon.location { background-color: rgba(239, 68, 68, 0.1); color: var(--danger-color); }
+
+.entity-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.entity-info h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.entity-info span {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.entity-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  border: 3px solid var(--bg-primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  z-index: 1;
+  margin-top: 0.25rem;
+}
+
+.timeline-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: 7.5px;
+  bottom: -0.25rem;
+  width: 2px;
+  background-color: var(--border-color);
+  z-index: 0;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 1.25rem;
+  border-radius: 8px;
+  flex: 1;
+  transition: all 0.2s;
+}
+
+.timeline-content:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-time {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.timeline-desc {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.5;
+}

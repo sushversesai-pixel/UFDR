@@ -1,0 +1,92 @@
+/* Card Styles */
+.ui-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ui-card.hoverable {
+  cursor: pointer;
+}
+
+/* Badge Styles */
+.ui-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-success {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: var(--success-color);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.badge-warning {
+  background-color: rgba(234, 179, 8, 0.1);
+  color: var(--warning-color);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+.badge-danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.badge-info {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--accent-color);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.badge-default {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* ProgressBar Styles */
+.ui-progress-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ui-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ui-progress-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.ui-progress-sublabel {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.ui-progress-track {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-tertiary);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.ui-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
