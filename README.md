@@ -68,6 +68,7 @@ Lint: npm run lint - Run ESLint to check code quality
 Preview: npm run preview - Preview production build locally
 📁 Project Structure
 Code
+```
 UFDR/
 ├── src/
 │   ├── components/        # React components
@@ -83,6 +84,7 @@ UFDR/
 ├── eslint.config.js       # ESLint configuration
 ├── package.json           # Dependencies
 └── README.md              # Documentation
+```
 📊 Using Force-Directed Graphs
 JavaScript
 import ForceGraph2D from 'react-force-graph-2d';
