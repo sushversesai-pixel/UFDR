@@ -1,6 +1,4 @@
-UFDR (Unified Force Directed Representation)**
 
-```markdown
 # 📊 UFDR - Unified Force Directed Representation
 
 A powerful React-based visualization and data analysis platform using force-directed graphs. UFDR enables users to explore complex relationships, analyze network structures, and generate comprehensive reports.
