@@ -1,139 +1,150 @@
+AI-Based UFDR (Universal Forensic Device Report) Analysis Tool
+Overview
 
-# 📊 UFDR - Unified Force Directed Representation
+UFDR files generated from digital forensic tools are large, complex, and difficult to analyze efficiently. While existing tools excel at data extraction, they lack intelligent analysis capabilities. Investigators often spend significant time manually reviewing logs, which increases the risk of missing critical evidence.
 
-A powerful React-based visualization and data analysis platform using force-directed graphs. UFDR enables users to explore complex relationships, analyze network structures, and generate comprehensive reports.
+This project introduces an AI-powered analysis layer that transforms raw UFDR data into structured, searchable, and actionable insights using natural language processing and machine learning.
 
-## ✨ Features
+Problem Statement
+UFDR reports are unstructured and difficult to navigate
+Manual analysis is time-consuming and error-prone
+Existing tools lack semantic understanding of data
+Investigators must rely heavily on manual filtering
 
-- **Force-Directed Graph Visualization** - Interactive network visualization with physics simulation
-- **Real-time Data Processing** - Process and analyze data on the fly
-- **PDF Report Generation** - Export visualizations and analysis as PDF documents
-- **Advanced Analytics** - Statistical analysis and insights
-- **Dark Mode Support** - Theme switching for comfortable usage
-- **Responsive Design** - Works on desktop, tablet, and mobile
-- **Firebase Integration** - Real-time data synchronization
-- **Chart Components** - Multiple chart types for data visualization
-- **Export Functionality** - Save graphs and reports in multiple formats
+Key Gap: Extraction exists, but intelligent analysis does not.
 
-## 🛠 Tech Stack
+Solution
 
-- **Frontend**: React 19.2.4, TypeScript
-- **Build Tool**: Vite 8.0.1
-- **Visualization**: 
-  - Force-Graph 1.51.2
-  - React Force Graph 2D 1.29.1
-  - Recharts 3.8.0
-- **PDF Generation**: jsPDF 4.2.1
-- **Routing**: React Router DOM 7.13.1
-- **Database**: Firebase 12.11.0
-- **UI Components**: Lucide React 0.577.0
-- **Styling**: Tailwind CSS
-- **Code Quality**: ESLint
+The system enables investigators to query forensic data using natural language and receive context-aware, explainable results.
 
-## 🚀 Getting Started
+Example queries:
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-- Firebase account (optional, for real-time features)
+“Show suspicious chats before the incident”
+“Find communication with a specific contact”
+“Identify messages related to financial transactions”
+Key Features
+1. UFDR Ingestion and Parsing
+Accepts UFDR exports (XML, SQLite, structured formats)
+Extracts:
+Messages (SMS, WhatsApp, Telegram)
+Call logs
+Contacts
+Media metadata
+Timestamps and locations
+Converts data into a unified internal structure
+2. Data Preprocessing and Indexing
+Cleans and normalizes text data
+Standardizes timestamps and formats
+Extracts metadata (EXIF, GPS, device info)
+Stores data in:
+Structured database (PostgreSQL or MongoDB)
+Vector database (FAISS) for semantic search
+3. AI Intelligence Engine
+Named Entity Recognition (NER)
+Identifies:
+People
+Phone numbers
+Emails
+Locations
+Organizations
+Dates and times
+Semantic Search
+Uses embeddings for meaning-based retrieval
+Enables context-aware search instead of keyword matching
+Pattern and Anomaly Detection
+Detects:
+Unusual communication spikes
+Repeated unknown contacts
+Suspicious time-based patterns
+Location anomalies
+4. Relationship and Timeline Analysis
+Builds communication graphs
+Generates chronological timelines of events
+Identifies key actors in communication networks
+5. Natural Language Query Interface
+Chat-style interaction
+No technical expertise required
+Provides:
+Relevant evidence
+Source references
+Timestamps
+Confidence scores
+6. Automated Report Generation
+Generates:
+Case summaries
+Key findings
+Entity breakdowns
+Export formats:
+PDF
+DOCX
+Structured evidence logs
+System Architecture
+UFDR File
+   ↓
+Ingestion & Parsing
+   ↓
+Preprocessing & Normalization
+   ↓
+Structured Database + Vector Database
+   ↓
+AI Intelligence Engine
+   ↓
+Query Interface
+   ↓
+Insights, Visualizations & Reports
+Tech Stack
 
-### Installation
+Backend
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/sushversesai-pixel/UFDR.git
-   cd UFDR
-Install dependencies:
+Python
+FastAPI
 
-bash
-npm install
-Configure Firebase (optional):
+AI / NLP
 
-Create a .env file in the root directory
-Add your Firebase credentials:
-Code
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_PROJECT_ID=your_project_id
-Start the development server:
+sentence-transformers
+spaCy
+Transformers (Hugging Face)
 
-bash
-npm run dev
-Visit http://localhost:5173 in your browser
+Databases
 
-🔨 Development
-Available Scripts
-Development: npm run dev - Start dev server with hot reload
-Build: npm run build - Build for production (includes TypeScript compilation)
-Lint: npm run lint - Run ESLint to check code quality
-Preview: npm run preview - Preview production build locally
-📁 Project Structure
-Code
-```
-UFDR/
-├── src/
-│   ├── components/        # React components
-│   ├── pages/             # Page components
-│   ├── services/          # Firebase and API services
-│   ├── hooks/             # Custom React hooks
-│   ├── types/             # TypeScript type definitions
-│   ├── App.tsx            # Main app component
-│   └── main.tsx           # Entry point
-├── public/                # Static assets
-├── vite.config.ts         # Vite configuration
-├── tsconfig.json          # TypeScript configuration
-├── eslint.config.js       # ESLint configuration
-├── package.json           # Dependencies
-└── README.md              # Documentation
-```
-📊 Using Force-Directed Graphs
-JavaScript
-import ForceGraph2D from 'react-force-graph-2d';
+PostgreSQL / MongoDB
+FAISS (Vector Search)
 
-const data = {
-  nodes: [
-    { id: 'node1', name: 'Node 1' },
-    { id: 'node2', name: 'Node 2' },
-  ],
-  links: [
-    { source: 'node1', target: 'node2' },
-  ],
-};
+Other Tools
 
-<ForceGraph2D graphData={data} />
-📄 Generating PDF Reports
-JavaScript
-import jsPDF from 'jspdf';
+Uvicorn
+Git & GitHub
+VS Code
+Installation
+Prerequisites
+Python 3.11
+Git
+Steps
+git clone https://github.com/your-username/UFDR_AI_Tool.git
+cd UFDR_AI_Tool/backend
 
-const generateReport = () => {
-  const doc = new jsPDF();
-  doc.text('Analysis Report', 10, 10);
-  doc.save('report.pdf');
-};
-🔐 Security Considerations
-Environment variables for sensitive data
-Input validation on all data
-Secure Firebase rules configuration
-XSS and CSRF protection
-🚢 Deployment
-Deploy to Firebase Hosting
-bash
-# Build the project
-npm run build
+python -m venv venv
+venv\Scripts\activate
 
-# Deploy using Firebase CLI
-firebase deploy
-Deploy to Vercel
-bash
-vercel
-🤝 Contributing
-Fork the repository
-Create a feature branch: git checkout -b feature/your-feature
-Make your changes and commit: git commit -m "Add feature"
-Run linter: npm run lint
-Push to branch: git push origin feature/your-feature
-Submit a pull request
-📝 License
-MIT License - See LICENSE file for details
+pip install --upgrade pip
+pip install -r requirements.txt
+Run the Server
+python -m uvicorn app.main:app --reload
 
-👤 Author
-Sai Susmitha
+Access the API at:
+
+http://127.0.0.1:8000
+Future Enhancements
+Cross-device correlation
+Multilingual chat analysis
+Audio-to-text processing for call recordings
+Real-time collaborative investigation
+Court-admissible explainability layer
+Impact
+Reduces investigation time significantly
+Minimizes human error
+Enables non-technical investigators to use advanced tools
+Scales across large datasets and multiple devices
+License
+
+This project is for academic and research purposes. Licensing can be updated based on deployment requirements.
