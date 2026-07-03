@@ -474,7 +474,7 @@ For academic and research purposes, proper citation is appreciated:
 
 ## 👤 Author
 
-**Sai Susmitha**
+**Sai Susmitha B**
 - GitHub: [@sushversesai-pixel](https://github.com/sushversesai-pixel)
 - Project: [UFDR - AI-Based Universal Forensic Device Report Analysis](https://github.com/sushversesai-pixel/UFDR)
 
